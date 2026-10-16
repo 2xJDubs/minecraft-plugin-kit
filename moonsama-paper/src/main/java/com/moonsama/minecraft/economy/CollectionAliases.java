@@ -4,6 +4,7 @@ import com.moonsama.minecraft.api.AssetHolding;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -25,7 +26,7 @@ public final class CollectionAliases {
         public Group {
             Set<String> normalized = new LinkedHashSet<>();
             collections.forEach(value -> normalized.add(value.toLowerCase(Locale.ROOT)));
-            collections = Set.copyOf(normalized);
+            collections = Collections.unmodifiableSet(normalized);
             tokenIds = List.copyOf(tokenIds);
             if (collections.size() < 2) {
                 throw new IllegalArgumentException("an alias group needs at least two collections: " + collections);
@@ -77,7 +78,7 @@ public final class CollectionAliases {
      * under either slug is the same item under the other.
      */
     public static final CollectionAliases DEFAULTS = new CollectionAliases(List.of(
-            new Group(Set.of("multiverseitems", "moonsama-x"), List.of())
+            new Group(new LinkedHashSet<>(List.of("multiverseitems", "moonsama-x")), List.of())
     ));
 
     private final List<Group> groups;
@@ -161,6 +162,47 @@ public final class CollectionAliases {
             }
         }
         return List.copyOf(result);
+    }
+
+    /** A holding as shown to a player: every slug it counts under, the one Portal reported first. */
+    public record Folded(List<String> collections, String tokenId, String balance) {
+    }
+
+    /** Undoes {@link #expand(List)} for display: a holding and its twins with the same id and balance become one entry. */
+    public List<Folded> fold(List<AssetHolding> holdings) {
+        List<Folded> result = new ArrayList<>();
+        boolean[] folded = new boolean[holdings.size()];
+        for (int i = 0; i < holdings.size(); i++) {
+            if (folded[i]) {
+                continue;
+            }
+            AssetHolding holding = holdings.get(i);
+            Set<String> twins = coveringTwins(holding);
+            List<String> slugs = new ArrayList<>(List.of(holding.collection()));
+            for (int j = i + 1; j < holdings.size(); j++) {
+                AssetHolding other = holdings.get(j);
+                if (!folded[j]
+                        && twins.contains(other.collection().toLowerCase(Locale.ROOT))
+                        && other.tokenId().trim().equals(holding.tokenId().trim())
+                        && other.balance().equals(holding.balance())) {
+                    folded[j] = true;
+                    slugs.add(other.collection());
+                }
+            }
+            result.add(new Folded(List.copyOf(slugs), holding.tokenId(), holding.balance()));
+        }
+        return List.copyOf(result);
+    }
+
+    private Set<String> coveringTwins(AssetHolding holding) {
+        String slug = holding.collection().toLowerCase(Locale.ROOT);
+        Set<String> twins = new LinkedHashSet<>();
+        for (Group group : groups) {
+            if (group.collections().contains(slug) && group.covers(holding.tokenId())) {
+                group.collections().stream().filter(other -> !other.equals(slug)).forEach(twins::add);
+            }
+        }
+        return twins;
     }
 
     private static String key(String collection, String tokenId) {
