@@ -1,5 +1,5 @@
 {
-  "_comment": "Cosmetic off-hand items of the legacy Moonsama server, keyed by the Portal collection/token that unlocks them. Materials and custom model data match the legacy resource pack (see resourcepack/). 'legacyPerk' documents the gameplay effect the old plugin granted; the kit does not implement perks. Curated from the retired moonsama-offhands plugin source.",
+  "_comment": "Cosmetic off-hand items of the legacy Moonsama server, keyed by the Portal collection/token that unlocks them (Multiverse Items are `multiverseitems`; MoonsamaCore also counts the `moonsama-x` twins for ids 1-70). Materials and custom model data match the legacy resource pack (see resourcepack/). 'legacyPerk' documents the gameplay effect the old plugin granted; the kit does not implement perks. Curated from the retired moonsama-offhands plugin source.",
   "offhands": [
     {
       "id": "moonsama:moonsama_egg",
@@ -27,7 +27,7 @@
       "model": "moonsama:offhand/moonbrella_yellow",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 2
       }
     },
@@ -39,7 +39,7 @@
       "model": "moonsama:offhand/moonbrella_pink",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 3
       }
     },
@@ -51,7 +51,7 @@
       "model": "moonsama:offhand/moonbrella_blue",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 4
       }
     },
@@ -63,7 +63,7 @@
       "model": "moonsama:offhand/moonbrella_moonshine",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 5
       }
     },
@@ -75,7 +75,7 @@
       "model": "moonsama:offhand/moonbrella_neon",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 6
       }
     },
@@ -87,7 +87,7 @@
       "model": "moonsama:offhand/moonbrella_green",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 7
       }
     },
@@ -99,7 +99,7 @@
       "model": "moonsama:offhand/moonbrella_red",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 8
       }
     },
@@ -111,7 +111,7 @@
       "model": "moonsama:offhand/moonbrella_flare",
       "legacyPerk": "Slow Falling I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 9
       }
     },
@@ -123,7 +123,7 @@
       "model": "moonsama:offhand/banana",
       "legacyPerk": "Jump Boost I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 59
       }
     },
@@ -135,7 +135,7 @@
       "model": "moonsama:offhand/burger",
       "legacyPerk": "Edible: saturation (delivery timer)",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 60
       }
     },
@@ -147,7 +147,7 @@
       "model": "moonsama:offhand/rum",
       "legacyPerk": "Drinkable: Strength, then Nausea/Slowness",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 61
       }
     },
@@ -159,7 +159,7 @@
       "model": "moonsama:offhand/kitty_paw",
       "legacyPerk": "Speed I; sneak then run to pounce",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 62
       }
     },
@@ -171,7 +171,7 @@
       "model": "moonsama:offhand/detectore_sapphire",
       "legacyPerk": "Ore Detection",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 63
       }
     },
@@ -183,7 +183,7 @@
       "model": "moonsama:offhand/detectore_amber",
       "legacyPerk": "Ore Detection",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 64
       }
     },
@@ -195,7 +195,7 @@
       "model": "moonsama:offhand/detectore_emerald",
       "legacyPerk": "Ore Detection",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 65
       }
     },
@@ -207,7 +207,7 @@
       "model": "moonsama:offhand/detectore_el_detectore",
       "legacyPerk": "Ore Detection",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 66
       }
     },
@@ -219,7 +219,7 @@
       "model": "moonsama:offhand/detectore_ruby",
       "legacyPerk": "Ore Detection",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 67
       }
     },
@@ -231,7 +231,7 @@
       "model": "moonsama:offhand/moonsquid",
       "legacyPerk": "Aqua Affinity I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 68
       }
     },
@@ -243,7 +243,7 @@
       "model": "moonsama:offhand/moonsquid_neon",
       "legacyPerk": "Aqua Affinity I",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 69
       }
     },
@@ -257,11 +257,11 @@
       "requirement": {
         "anyOf": [
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 71
           },
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 72
           }
         ]
@@ -277,11 +277,11 @@
       "requirement": {
         "anyOf": [
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 77
           },
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 78
           }
         ]
@@ -297,11 +297,11 @@
       "requirement": {
         "anyOf": [
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 79
           },
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 80
           }
         ]
@@ -317,11 +317,11 @@
       "requirement": {
         "anyOf": [
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 83
           },
           {
-            "collection": "moonsama-x",
+            "collection": "multiverseitems",
             "tokenId": 84
           }
         ]
@@ -335,7 +335,7 @@
       "model": "moonsama:offhand/moonbag",
       "legacyPerk": "Random effect, changes every 5 min",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 85
       }
     },
@@ -347,7 +347,7 @@
       "model": "moonsama:offhand/moondrink",
       "legacyPerk": "Haste III at night",
       "requirement": {
-        "collection": "moonsama-x",
+        "collection": "multiverseitems",
         "tokenId": 95
       }
     },

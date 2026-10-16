@@ -28,7 +28,7 @@ class GateTest {
         assertThat(config.enabled()).isFalse();
         assertThat(config.passes()).extracting(Pass::collection)
                 .containsExactly("moonsama", "exosama", "gromlin", "moonsama-embassy",
-                        "moonsama-multiverse-art-eth", "moonsama-x");
+                        "moonsama-multiverse-art-eth", "multiverseitems");
         assertThat(config.passes().get(5).tokenIds()).containsExactly("1");
         assertThat(config.unlinked()).isEqualTo(GateConfig.Action.RESTRICT);
         assertThat(config.denied()).isEqualTo(GateConfig.Action.KICK);

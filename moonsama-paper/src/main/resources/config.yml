@@ -40,6 +40,14 @@ skins:
 storage:
   journal-mode: wal
 
+# Collections Portal lists under two slugs because they were migrated between chains with
+# identical token ids. A holding under one slug also counts under the others, for the listed
+# ids. Default: Moonsama X (Moonriver) -> Multiverse Items (Exosama network), ids 1-70.
+# Set to [] to disable.
+collection-aliases:
+  - collections: [multiverseitems, moonsama-x]
+    token-ids: ["1-70"]
+
 sync:
   holdings-ttl-seconds: 60
   changes-interval-seconds: 5

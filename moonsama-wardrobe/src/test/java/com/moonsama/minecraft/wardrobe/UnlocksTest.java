@@ -48,24 +48,24 @@ class UnlocksTest {
     }
 
     @Test
-    void multiverseItemsUnlockThroughMoonsamaXHoldings() {
+    void multiverseItemsUnlockThroughMultiverseItemsHoldings() {
         List<AssetHolding> withoutItem = List.of(holding("moonsama", 1));
-        List<AssetHolding> withItem = List.of(holding("moonsama", 1), holding("moonsama-x", 64));
+        List<AssetHolding> withItem = List.of(holding("moonsama", 1), holding("multiverseitems", 64));
 
         boolean anywhereWithout = compositor.customizableSlots("moonsama").stream()
                 .anyMatch(slot -> offers(unlocks.available("moonsama", slot.referenceId(), withoutItem), "multiverse_items:amber_detectore"));
         boolean anywhereWith = compositor.customizableSlots("moonsama").stream()
                 .anyMatch(slot -> offers(unlocks.available("moonsama", slot.referenceId(), withItem), "multiverse_items:amber_detectore"));
 
-        assertFalse(anywhereWithout, "detectore must be locked without the Moonsama X token");
-        assertTrue(anywhereWith, "Moonsama X #64 must unlock the amber detectore");
+        assertFalse(anywhereWithout, "detectore must be locked without the Multiverse Items token");
+        assertTrue(anywhereWith, "Multiverse Items #64 must unlock the amber detectore");
     }
 
     @Test
     void partsGatedOnContractsOutsidePortalStayLocked() {
         // Multiverse Costumes (0xc630…) is not a Portal collection; a generous wallet still cannot unlock it.
         List<AssetHolding> whale = List.of(holding("moonsama", 1), holding("moonsama", 2),
-                holding("moonsama-x", 4), holding("moonsama-x", 37), holding("exosama", 1));
+                holding("multiverseitems", 4), holding("multiverseitems", 37), holding("exosama", 1));
         Set<String> owned = unlocks.ownedParts("moonsama", whale);
         SlotValue partyHat = new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:2nd_anniversary_party_hat");
         assertFalse(unlocks.isUnlocked(partyHat, owned, whale));
@@ -81,7 +81,7 @@ class UnlocksTest {
         assertTrue(free.isUnlocked(new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"), owned, holder));
         // Still locked under the default policy.
         assertFalse(unlocks.isUnlocked(new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"), owned, holder));
-        // Multiverse Items are a Portal collection (moonsama-x); FREE must not bypass them.
+        // Multiverse Items are a Portal collection (multiverseitems); FREE must not bypass them.
         assertFalse(free.isUnlocked(new SlotValue("mainhand", "multiverse-items", "multiverse_items:amber_detectore"), owned, holder));
     }
 

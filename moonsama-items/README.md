@@ -1,7 +1,7 @@
 # MoonsamaItems
 
 Paper plugin for the legacy Moonsama item cosmetics: weapon/tool skins, off-hand items and
-3D hats, unlocked by what a linked player holds in Portal (mostly `moonsama-x`, the
+3D hats, unlocked by what a linked player holds in Portal (mostly `multiverseitems`, the
 Multiverse Items). Off-hand items also carry the gameplay perks the old server gave them.
 
 Depends on `MoonsamaCore` (identity, holdings). Uses `MoonsamaSkins` when present (hats

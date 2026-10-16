@@ -20,14 +20,14 @@
   {
    "chainId": 1285,
    "address": "0x1974eeaf317ecf792ff307f25a3521c35eecde86",
-   "portal": "moonsama-x",
-   "note": "Moonsama X (Moonriver)"
+   "portal": "multiverseitems",
+   "note": "Moonsama X (Moonriver); migrated to Multiverse Items with the same ids 1-70; Portal still lists it as `moonsama-x`"
   },
   {
    "chainId": 2109,
    "address": "0x9984440fb82f1af013865141909276d26b86e303",
-   "portal": "moonsama-x",
-   "note": "Multiverse Items (Exosama network); token ids mirror the Moonriver twin"
+   "portal": "multiverseitems",
+   "note": "Multiverse Items (Exosama network); ids 1-70 mirror Moonsama X, 71-95 are new"
   },
   {
    "chainId": 1285,

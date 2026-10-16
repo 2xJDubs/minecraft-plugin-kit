@@ -41,6 +41,7 @@ public final class PortalSyncService {
     private final Consumer<UUID> holdingsSink;
     private final Consumer<UUID> erasureSink;
     private final Consumer<Throwable> errorSink;
+    private final CollectionAliases aliases;
     private final Map<String, CompletableFuture<List<AssetHolding>>> refreshes =
             new HashMap<>();
     private final AtomicBoolean changesRunning = new AtomicBoolean();
@@ -55,6 +56,7 @@ public final class PortalSyncService {
             Executor databaseExecutor,
             ScheduledExecutorService scheduler,
             MoonsamaConfig config,
+            CollectionAliases aliases,
             Consumer<UUID> holdingsSink,
             Consumer<UUID> erasureSink,
             Consumer<Throwable> errorSink
@@ -62,6 +64,7 @@ public final class PortalSyncService {
         this.portal = portal;
         this.links = links;
         this.store = store;
+        this.aliases = aliases;
         this.databaseExecutor = databaseExecutor;
         this.scheduler = scheduler;
         this.config = config;
@@ -169,6 +172,13 @@ public final class PortalSyncService {
         });
     }
 
+    /** Portal holdings as the API types, with migrated-collection twins added (see {@link CollectionAliases}). */
+    private List<AssetHolding> toHoldings(PortalModels.PlayerHoldings result) {
+        return aliases.expand(result.holdings().stream()
+                .map(value -> new AssetHolding(value.collection(), value.tokenId(), value.balance()))
+                .toList());
+    }
+
     private CompletableFuture<List<AssetHolding>> refresh(
             String playerId,
             long generation
@@ -188,13 +198,7 @@ public final class PortalSyncService {
                                         false,
                                         List.of()
                                 ));
-                        List<AssetHolding> holdings = result.holdings().stream()
-                                .map(value -> new AssetHolding(
-                                        value.collection(),
-                                        value.tokenId(),
-                                        value.balance()
-                                ))
-                                .toList();
+                        List<AssetHolding> holdings = toHoldings(result);
                         return database(() -> {
                             store.saveHoldings(
                                     playerId,
@@ -365,13 +369,7 @@ public final class PortalSyncService {
                             playerId,
                             new PortalModels.PlayerHoldings(playerId, false, List.of())
                     );
-                    List<AssetHolding> holdings = result.holdings().stream()
-                            .map(value -> new AssetHolding(
-                                    value.collection(),
-                                    value.tokenId(),
-                                    value.balance()
-                            ))
-                            .toList();
+                    List<AssetHolding> holdings = toHoldings(result);
                     store.saveHoldings(
                             playerId,
                             result.known(),

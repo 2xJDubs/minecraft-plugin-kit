@@ -82,7 +82,7 @@ Changes between versions are listed in [CHANGELOG.md](CHANGELOG.md).
   into a 64×64 skin PNG from the layers in `cosmetics-data`. See
   [skin-compositor/README.md](skin-compositor/README.md).
 - `moonsama-items`: `/items` plugin for the legacy item cosmetics — weapon/tool skins
-  and off-hand items unlocked by `moonsama-x` (Multiverse Items) tokens, plus the 3D hats
+  and off-hand items unlocked by `multiverseitems` (Multiverse Items) tokens, plus the 3D hats
   that belong to a worn Moonsama/Exosama skin (with `MoonsamaSkins`). Off-hands carry
   their legacy gameplay perks (Moonbroom flight, Eggnades, Detectore ore glow, Pods jams,
   …), each of which can be switched off in the config. See

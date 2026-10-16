@@ -4,7 +4,7 @@
 # MoonsamaCore's Portal holdings decide who may use them. Off-hands can additionally carry
 # their legacy gameplay perks (see offhands.perks).
 
-# Weapon/tool skins from cosmetics-data/item-skins.json (unlocked by moonsama-x tokens).
+# Weapon/tool skins from cosmetics-data/item-skins.json (unlocked by multiverseitems tokens).
 item-skins:
   enabled: true
 
@@ -43,5 +43,6 @@ unequip-when-sold: true
 collection-names:
   moonsama: Moonsama
   exosama: Exosama
-  moonsama-x: Multiverse Items
+  multiverseitems: Multiverse Items
+  moonsama-x: Multiverse Items (Moonriver)
   pods: Pods

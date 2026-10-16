@@ -19,6 +19,7 @@ import com.moonsama.minecraft.economy.EconomyCoordinator;
 import com.moonsama.minecraft.skins.MineskinSigner;
 import com.moonsama.minecraft.skins.SignatureCache;
 import com.moonsama.minecraft.economy.HoldCoordinator;
+import com.moonsama.minecraft.economy.CollectionAliases;
 import com.moonsama.minecraft.economy.PortalSyncService;
 import com.moonsama.minecraft.store.LinkStore;
 import com.moonsama.minecraft.store.LinkedPlayer;
@@ -108,6 +109,10 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
                 this::onHoldChanged,
                 this::onWorkerError
         );
+        CollectionAliases aliases = CollectionAliases.load(getConfig(), "collection-aliases");
+        if (!aliases.isEmpty()) {
+            getLogger().info("Migrated collections treated as one: " + aliases);
+        }
         sync = new PortalSyncService(
                 portal,
                 links,
@@ -115,6 +120,7 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
                 storageExecutor,
                 workerScheduler,
                 config,
+                aliases,
                 this::onHoldingsLoaded,
                 this::onPlayerErased,
                 this::onWorkerError

@@ -17,8 +17,8 @@ passes:
   - collection: gromlin             # Gromlins
   - collection: moonsama-embassy    # Embassy
   - collection: moonsama-multiverse-art-eth   # Multiverse Avatars / Art (Ethereum)
-  - collection: moonsama-x          # VIP Ticket (Multiverse Items token 1)
-    token-ids: ["1"]
+  - collection: multiverseitems     # VIP Ticket (Multiverse Items token 1; MoonsamaCore also
+    token-ids: ["1"]                #   counts the few still held under the old `moonsama-x`)
 
 # Players who have not linked a Portal account yet.
 #   restrict - they may join but cannot move, build, fight or use most commands until
