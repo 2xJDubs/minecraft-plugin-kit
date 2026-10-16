@@ -37,8 +37,7 @@ the container's JDK; see [CONTRIBUTING.md](../CONTRIBUTING.md#development-enviro
 
 `make up` uses the checksum-pinned Paper build. Use `make up-latest` when you
 want to refresh that pin from Paper's official downloads API before building.
-This keeps normal builds reproducible while 26.3 is receiving frequent
-pre-release updates.
+This keeps normal builds reproducible across Paper updates.
 
 This command:
 
@@ -153,7 +152,7 @@ change the server to offline mode.
 
 ### Paper fails during startup
 
-26.3 is a pre-release target. Check the Paper logs first; the pinned build may need
+Check the Paper logs first; the pinned build may need
 an explicit upgrade after an upstream breaking change.
 
 ### The JVM crashes with `SIGBUS` while MoonsamaCore enables
