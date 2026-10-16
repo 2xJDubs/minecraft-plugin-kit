@@ -52,7 +52,7 @@ PORTAL_COLLECTIONS = {
 # migrated to the Exosama-network Multiverse Items contract (ids 1-95) with identical token
 # ids. Portal exposes them as two collections, `moonsama-x` (old; today holds only a few VIP
 # tickets, id 1) and `multiverseitems` (new; everything else). Data is keyed on the new slug;
-# MoonsamaCore's `collection-aliases` makes `moonsama-x` holdings count for ids 1-70.
+# MoonsamaCore's `collection-aliases` makes `moonsama-x` holdings count (same id = same item).
 LEGACY_CONTRACTS = {
     (1285, "0x1974eeaf317ecf792ff307f25a3521c35eecde86"): {
         "portal": "multiverseitems",
@@ -592,8 +592,9 @@ and MineSkin's generator accounts, not players.
 - `item-skins.json` — tool skins (custom model data per vanilla material) and the Portal
   token that unlocks each one ({summary.get('itemSkins')} entries). Unlock tokens are keyed
   on the `multiverseitems` collection (Multiverse Items, Exosama network, ids 1-95). Ids
-  1-70 are the same items as the Moonriver predecessor Portal lists as `moonsama-x`;
-  MoonsamaCore's `collection-aliases` makes holdings under either slug count.
+  1-70 also exist on the Moonriver predecessor Portal lists as `moonsama-x`;
+  MoonsamaCore's `collection-aliases` makes holdings under either slug count (same id =
+  same item; verified id by id against Portal metadata and the Customizer unlock rules).
 - `offhands.json`, `hats.json` — cosmetic off-hand items and 3D hats of the legacy server
   (material, custom model data, unlocking Portal token). Curated by hand from the retired
   plugin sources rather than extracted, so they survive re-runs of the extractor.

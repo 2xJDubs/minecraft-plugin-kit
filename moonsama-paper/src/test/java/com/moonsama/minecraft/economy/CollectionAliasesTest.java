@@ -17,15 +17,15 @@ class CollectionAliasesTest {
     private static final AssetHolding PFP = new AssetHolding("moonsama", "12", "1");
 
     @Test
-    void defaultsMergeMoonsamaXIntoMultiverseItemsForSharedIds() {
+    void defaultsMergeMoonsamaXAndMultiverseItemsForEveryId() {
         List<AssetHolding> expanded = CollectionAliases.DEFAULTS.expand(
                 List.of(MOONSAMA_X_VIP, MULTIVERSE_DETECTORE, MULTIVERSE_MOONBAG, PFP));
 
         assertThat(expanded).containsExactlyInAnyOrder(
                 MOONSAMA_X_VIP, MULTIVERSE_DETECTORE, MULTIVERSE_MOONBAG, PFP,
                 new AssetHolding("multiverseitems", "1", "1"),   // VIP ticket counts on the new slug
-                new AssetHolding("moonsama-x", "64", "2")        // and vice versa for ids 1-70
-                // id 85 exists only on multiverseitems: no moonsama-x twin
+                new AssetHolding("moonsama-x", "64", "2"),       // and vice versa
+                new AssetHolding("moonsama-x", "85", "1")        // every id, not just the 1-70 that existed on Moonriver
         );
     }
 

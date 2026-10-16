@@ -201,8 +201,8 @@ touch:
 - **`MoonsamaCore`** - `collection-aliases:` lists Portal collections that are the same
   items under the same token ids because they were migrated between chains. Default:
   `multiverseitems` (Multiverse Items, Exosama network) and `moonsama-x` (its Moonriver
-  predecessor) for ids 1-70, so a VIP ticket or off-hand still sitting on the old slug counts
-  everywhere. All kit data is keyed on the new slugs; add a group here if Portal splits
+  predecessor), same token id = same item, so a VIP ticket or off-hand still sitting on the
+  old slug counts everywhere. All kit data is keyed on the new slugs; add a group here if Portal splits
   another collection, set `[]` to disable.
 
 Permissions (`default: true` = everyone): `moonsama.use`, `moonsama.skins.use`,

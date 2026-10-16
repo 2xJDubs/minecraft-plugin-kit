@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * Portal collections that are the same items under the same token ids, because a collection
  * was migrated between chains and Portal exposes both the old and the new contract as
- * separate slugs (e.g. {@code moonsama-x} → {@code multiverseitems}, ids 1-70).
+ * separate slugs (e.g. {@code moonsama-x} → {@code multiverseitems}).
  *
  * <p>{@link #expand(List)} adds, for every holding in an aliased collection whose token id is
  * inside the shared range, the same holding under each twin slug. Feature plugins then match
@@ -70,9 +70,14 @@ public final class CollectionAliases {
 
     public static final CollectionAliases NONE = new CollectionAliases(List.of());
 
-    /** Moonsama X (Moonriver) migrated to Multiverse Items (Exosama network); ids 1-70 are identical. */
+    /**
+     * Moonsama X (Moonriver) migrated to Multiverse Items (Exosama network) with identical token
+     * ids (verified id by id against Portal metadata and the legacy Customizer unlock rules, which
+     * gated every item on "Moonriver #N or Exosama #N"). No id range: a holding Portal reports
+     * under either slug is the same item under the other.
+     */
     public static final CollectionAliases DEFAULTS = new CollectionAliases(List.of(
-            new Group(Set.of("multiverseitems", "moonsama-x"), List.of(new Range(1, 70)))
+            new Group(Set.of("multiverseitems", "moonsama-x"), List.of())
     ));
 
     private final List<Group> groups;
@@ -86,7 +91,7 @@ public final class CollectionAliases {
      * <pre>
      * collection-aliases:
      *   - collections: [multiverseitems, moonsama-x]
-     *     token-ids: ["1-70"]
+     *     token-ids: ["1-70"]   # optional; omit to alias every id
      * </pre>
      * A missing key keeps {@link #DEFAULTS}; an explicit empty list disables aliasing.
      */

@@ -29,7 +29,7 @@ collection + token id, so the wardrobe mirrors the rules like this:
 | Customizer rule | Wardrobe equivalent |
 | --- | --- |
 | Trait rules (`nft` / `trait`, patterns) | A part is unlocked if one of the player's NFTs in the same collection has it in its default composition. Holding Moonsama #2 (aviator) unlocks the aviator for Moonsama #1. |
-| `nft` `any` / `specific` / `range` on a legacy contract | The contract is mapped to a Portal collection through `cosmetics-data/collections.json` → `legacyContracts`, then checked against holdings. Multiverse Items on Moonriver and Exosama both map to `multiverseitems`; MoonsamaCore also counts holdings Portal still lists under the old `moonsama-x` slug (ids 1-70). |
+| `nft` `any` / `specific` / `range` on a legacy contract | The contract is mapped to a Portal collection through `cosmetics-data/collections.json` → `legacyContracts`, then checked against holdings. Multiverse Items on Moonriver and Exosama both map to `multiverseitems`; MoonsamaCore also counts holdings Portal still lists under the old `moonsama-x` slug (same id = same item). |
 | Contracts Portal does not know (Multiverse Costumes, Backgrounds, Avatars) | Governed by `parts-outside-portal`: `locked` (default) keeps the 39 costume-only parts unavailable; `free` opens them to every linked player. Portal will not index those contracts, so this is a server policy, not a data gap. |
 | `AND` / `OR` / `NAND` / `NOR`, `invert` | Evaluated as written. |
 | `none` / unknown types | Never unlock. |

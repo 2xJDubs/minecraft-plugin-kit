@@ -1,5 +1,5 @@
 {
-  "_comment": "Cosmetic off-hand items of the legacy Moonsama server, keyed by the Portal collection/token that unlocks them (Multiverse Items are `multiverseitems`; MoonsamaCore also counts the `moonsama-x` twins for ids 1-70). Materials and custom model data match the legacy resource pack (see resourcepack/). 'legacyPerk' documents the gameplay effect the old plugin granted; the kit does not implement perks. Curated from the retired moonsama-offhands plugin source.",
+  "_comment": "Cosmetic off-hand items of the legacy Moonsama server, keyed by the Portal collection/token that unlocks them (Multiverse Items are `multiverseitems`; MoonsamaCore also counts the `moonsama-x` twins, same id). Materials and custom model data match the legacy resource pack (see resourcepack/). 'legacyPerk' documents the gameplay effect the old plugin granted; the kit does not implement perks. Curated from the retired moonsama-offhands plugin source.",
   "offhands": [
     {
       "id": "moonsama:moonsama_egg",

@@ -63,7 +63,7 @@ class ItemsCatalogTest {
         assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("multiverseitems", "72", "1")))).isTrue();
         assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("multiverseitems", "73", "1")))).isFalse();
         assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("multiverseitems", "71", "0")))).isFalse();
-        // Ids 71+ never existed on Moonsama X; MoonsamaCore only aliases moonsama-x -> multiverseitems for 1-70.
+        // Data is keyed on multiverseitems; MoonsamaCore adds the twin holding when a player holds moonsama-x #72.
         assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("moonsama-x", "72", "1")))).isFalse();
     }
 
