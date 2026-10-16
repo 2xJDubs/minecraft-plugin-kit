@@ -25,7 +25,8 @@ with direct Moonsama Portal integration.
   with a browser confirmation page that names the Minecraft account before the link is
   saved (prevents forwarded-link account takeover), holdings
   cache with `collection-aliases` for chain-migrated collections (`multiverseitems` =
-  `moonsama-x`, same token id), crash-safe economy with idempotent Portal transactions, SQLite storage
+  `moonsama-x`, same token id); Multiverse Costumes / Backgrounds resolve to the Portal
+  collections `multiversecostumes` / `multiversebackgrounds` so the wardrobe can check them, crash-safe economy with idempotent Portal transactions, SQLite storage
   (`storage.journal-mode`, default `wal`, `truncate` for bind-mounted volumes), resource
   pack serving with SHA-1 pinning, shared API (`MoonsamaApi`) for feature plugins.
 - **MoonsamaSkins**: NFT skins for `moonsama`, `exosama`, `gromlin`, `moonsama-embassy`,

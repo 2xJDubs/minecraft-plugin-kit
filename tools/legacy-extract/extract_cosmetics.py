@@ -69,8 +69,14 @@ LEGACY_CONTRACTS = {
     (1284, "0xf27a6c72398eb7e25543d19fda370b7083474735"): {"portal": "gromlin", "note": "Gromlins (Moonbeam)"},
     (1285, "0x0a54845ac3743c96e582e03f26c3636ea9c00c8a"): {"portal": "moonsama-embassy", "note": "Moonsama Embassy (Moonriver)"},
     (2109, "0xaa821f830beff26626379d840621b92911ea53b7"): {"portal": "pods", "note": "Pods (Exosama network)"},
-    (2109, "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71"): {"portal": None, "note": "Multiverse Costumes; not in Portal"},
-    (2109, "0x5cb76be66792a48bdc96676224cda8bf1df611d4"): {"portal": None, "note": "Multiverse Backgrounds; not in Portal"},
+    (2109, "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71"): {
+        "portal": "multiversecostumes",
+        "note": "Multiverse Costumes (Exosama network); Portal token ids = contract ids (verified by name, 1-47)",
+    },
+    (2109, "0x5cb76be66792a48bdc96676224cda8bf1df611d4"): {
+        "portal": "multiversebackgrounds",
+        "note": "Multiverse Backgrounds (Exosama network); Portal token ids = contract ids (1-5)",
+    },
     (1, "0xd1321561c00b6cbb316b157f8e38b9341b3f2979"): {
         "portal": "moonsama-multiverse-art-eth",
         "note": "Multiverse Avatars / Multiverse Art (Ethereum); final migration target",

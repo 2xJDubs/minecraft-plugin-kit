@@ -68,14 +68,14 @@
   {
    "chainId": 2109,
    "address": "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71",
-   "portal": null,
-   "note": "Multiverse Costumes; not in Portal"
+   "portal": "multiversecostumes",
+   "note": "Multiverse Costumes (Exosama network); Portal token ids = contract ids (verified by name, 1-47)"
   },
   {
    "chainId": 2109,
    "address": "0x5cb76be66792a48bdc96676224cda8bf1df611d4",
-   "portal": null,
-   "note": "Multiverse Backgrounds; not in Portal"
+   "portal": "multiversebackgrounds",
+   "note": "Multiverse Backgrounds (Exosama network); Portal token ids = contract ids (1-5)"
   },
   {
    "chainId": 1,

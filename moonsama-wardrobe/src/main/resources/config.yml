@@ -16,9 +16,11 @@ hidden-slots:
   - background
   - companion
 
-# Parts whose only unlock was a Multiverse Costume / Background NFT. Portal does not index
-# those contracts, so the wardrobe cannot check them.
-#   locked - keep them unavailable (default; nobody gets the old paid costumes for free)
+# Parts whose only unlock is a legacy contract that Portal does not index (listed with
+# `portal: null` in cosmetics-data/collections.json). The shipped data has none: Multiverse
+# Costumes and Backgrounds are the Portal collections `multiversecostumes` /
+# `multiversebackgrounds` and are checked like everything else.
+#   locked - keep such parts unavailable (default)
 #   free   - every linked player may use them
 parts-outside-portal: locked
 

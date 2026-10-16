@@ -62,26 +62,32 @@ class UnlocksTest {
     }
 
     @Test
-    void partsGatedOnContractsOutsidePortalStayLocked() {
-        // Multiverse Costumes (0xc630…) is not a Portal collection; a generous wallet still cannot unlock it.
+    void costumesUnlockThroughThePortalCostumeCollection() {
+        // Multiverse Costumes (0xc630…) is the Portal collection `multivercostumes`, same token ids.
+        // The party hat is costume #37; a generous wallet without it stays locked.
+        SlotValue partyHat = new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:2nd_anniversary_party_hat");
         List<AssetHolding> whale = List.of(holding("moonsama", 1), holding("moonsama", 2),
                 holding("multiverseitems", 4), holding("multiverseitems", 37), holding("exosama", 1));
-        Set<String> owned = unlocks.ownedParts("moonsama", whale);
-        SlotValue partyHat = new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:2nd_anniversary_party_hat");
-        assertFalse(unlocks.isUnlocked(partyHat, owned, whale));
+        assertFalse(unlocks.isUnlocked(partyHat, unlocks.ownedParts("moonsama", whale), whale));
+
+        List<AssetHolding> withHat = List.of(holding("moonsama", 1), holding("multiversecostumes", 37));
+        assertTrue(unlocks.isUnlocked(partyHat, unlocks.ownedParts("moonsama", withHat), withHat));
+
+        // Kringle Kap is costume 19-20 (regular / soulbound twin).
+        SlotValue kringle = new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap");
+        List<AssetHolding> soulbound = List.of(holding("moonsama", 1), holding("multiversecostumes", 20));
+        assertTrue(unlocks.isUnlocked(kringle, unlocks.ownedParts("moonsama", soulbound), soulbound));
+        List<AssetHolding> wrongCostume = List.of(holding("moonsama", 1), holding("multiversecostumes", 21));
+        assertFalse(unlocks.isUnlocked(kringle, unlocks.ownedParts("moonsama", wrongCostume), wrongCostume));
     }
 
     @Test
-    void freePolicyOpensCostumeOnlyPartsButNotUnknownContracts() {
+    void freePolicyNeverBypassesPortalCollections() {
+        // Every contract in the shipped data is a Portal collection now, so FREE has nothing to open.
         Unlocks free = new Unlocks(compositor, Unlocks.OutsidePortalPolicy.FREE);
         List<AssetHolding> holder = List.of(holding("moonsama", 1));
         Set<String> owned = free.ownedParts("moonsama", holder);
-
-        // Gated on the Multiverse Costumes contract only → free.
-        assertTrue(free.isUnlocked(new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"), owned, holder));
-        // Still locked under the default policy.
-        assertFalse(unlocks.isUnlocked(new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"), owned, holder));
-        // Multiverse Items are a Portal collection (multiverseitems); FREE must not bypass them.
+        assertFalse(free.isUnlocked(new SlotValue("costume", "multiverse-costumes", "multiverse_costumes:kringle_kap"), owned, holder));
         assertFalse(free.isUnlocked(new SlotValue("mainhand", "multiverse-items", "multiverse_items:amber_detectore"), owned, holder));
     }
 

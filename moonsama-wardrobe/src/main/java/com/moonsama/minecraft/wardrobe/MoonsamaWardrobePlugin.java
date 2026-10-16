@@ -85,7 +85,7 @@ public final class MoonsamaWardrobePlugin extends JavaPlugin implements Listener
                 () -> getServer().getServicesManager().load(SkinSigner.class), renderExecutor, collections, hidden,
                 outsidePortal, budget);
 
-        getLogger().info(String.format(Locale.ROOT, "Wardrobe ready for %s; %d saved look(s); skin signing %s; costume-only parts %s; signing budget %s",
+        getLogger().info(String.format(Locale.ROOT, "Wardrobe ready for %s; %d saved look(s); skin signing %s; parts outside Portal %s; signing budget %s",
                 service.collections(), store.size(), service.signingAvailable() ? "available" : "NOT configured (set MINESKIN_API_KEY)",
                 outsidePortal == Unlocks.OutsidePortalPolicy.FREE ? "free for everyone" : "locked",
                 budget.enabled()
