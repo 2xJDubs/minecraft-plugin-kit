@@ -14,7 +14,7 @@ Nothing yet - first release pending.
 
 ## [0.1.0] - unreleased
 
-Tested with Paper 26.3 build 147 (beta), Java 25.
+Tested with Paper 26.3 build 194 (stable), Java 25.
 
 Initial public kit for Paper 26.3 / Java 25, replacing the retired internal game backend
 with direct Moonsama Portal integration.
@@ -24,7 +24,9 @@ with direct Moonsama Portal integration.
 - **MoonsamaCore** (`moonsama-paper`): Portal account linking via OAuth (`/moonsama link`)
   with a browser confirmation page that names the Minecraft account before the link is
   saved (prevents forwarded-link account takeover), holdings
-  cache, crash-safe economy with idempotent Portal transactions, SQLite storage
+  cache with `collection-aliases` for chain-migrated collections (`multiverseitems` =
+  `moonsama-x`, same token id); Multiverse Costumes / Backgrounds resolve to the Portal
+  collections `multiversecostumes` / `multiversebackgrounds` so the wardrobe can check them, crash-safe economy with idempotent Portal transactions, SQLite storage
   (`storage.journal-mode`, default `wal`, `truncate` for bind-mounted volumes), resource
   pack serving with SHA-1 pinning, shared API (`MoonsamaApi`) for feature plugins.
 - **MoonsamaSkins**: NFT skins for `moonsama`, `exosama`, `gromlin`, `moonsama-embassy`,

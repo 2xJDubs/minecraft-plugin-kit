@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * What a player must hold in Portal to use a cosmetic: any of the listed clauses, each a
  * collection and optionally a specific token id.
  *
- * <p>JSON forms: {@code {"collection": "moonsama-x", "tokenId": 12}},
+ * <p>JSON forms: {@code {"collection": "multiverseitems", "tokenId": 12}},
  * {@code {"collection": "pods"}} (any token) or {@code {"anyOf": [clause, clause]}}.
  * A {@code null} collection means the cosmetic cannot be unlocked through Portal.
  */

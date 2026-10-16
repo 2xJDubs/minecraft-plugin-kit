@@ -41,7 +41,7 @@ contract mapping.
 enabled: true
 passes:
   - collection: moonsama
-  - collection: moonsama-x
+  - collection: multiverseitems
     token-ids: ["1"]
   - collection: some-fungible
     min-balance: 100

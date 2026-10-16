@@ -9,6 +9,7 @@ dependencies {
     implementation(project(":portal-client"))
     implementation("org.xerial:sqlite-jdbc:3.53.4.0")
     compileOnly("io.papermc.paper:paper-api:$paperApiVersion")
+    testImplementation("io.papermc.paper:paper-api:$paperApiVersion")
     // Gson ships with Paper at runtime; tests need it on the classpath explicitly.
     testImplementation("com.google.code.gson:gson:2.14.0")
 }

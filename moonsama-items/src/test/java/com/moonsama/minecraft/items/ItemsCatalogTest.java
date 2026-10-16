@@ -37,13 +37,13 @@ class ItemsCatalogTest {
     }
 
     @Test
-    void itemSkinsAreKeyedByIdentifierAndUnlockedByMoonsamaX() {
+    void itemSkinsAreKeyedByIdentifierAndUnlockedByMultiverseItems() {
         ItemSkin banana = catalog.itemSkin("banana_sword").orElseThrow();
         assertThat(banana.name()).isEqualTo("The Primate Peeler");
         assertThat(banana.customModelData()).isEqualTo(1);
         assertThat(banana.materials()).contains(Material.IRON_SWORD, Material.NETHERITE_SWORD);
         assertThat(banana.previewMaterial()).isEqualTo(Material.IRON_SWORD);
-        assertThat(banana.requirement().anyOf()).containsExactly(new Requirement.Clause("moonsama-x", 12L));
+        assertThat(banana.requirement().anyOf()).containsExactly(new Requirement.Clause("multiverseitems", 12L));
 
         // The birthday cookie sword has no Portal collection and can never be unlocked.
         ItemSkin cookie = catalog.itemSkin("moonsama:cookie_sword").orElseThrow();
@@ -60,9 +60,11 @@ class ItemsCatalogTest {
         assertThat(egg.requirement().describe(Map.of("moonsama", "Moonsama"))).isEqualTo("any Moonsama or any exosama");
 
         Offhand broom = catalog.offhand("moonbroom").orElseThrow();
-        assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("moonsama-x", "72", "1")))).isTrue();
-        assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("moonsama-x", "73", "1")))).isFalse();
-        assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("moonsama-x", "71", "0")))).isFalse();
+        assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("multiverseitems", "72", "1")))).isTrue();
+        assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("multiverseitems", "73", "1")))).isFalse();
+        assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("multiverseitems", "71", "0")))).isFalse();
+        // Data is keyed on multiverseitems; MoonsamaCore adds the twin holding when a player holds moonsama-x #72.
+        assertThat(broom.requirement().satisfiedBy(List.of(new AssetHolding("moonsama-x", "72", "1")))).isFalse();
     }
 
     @Test

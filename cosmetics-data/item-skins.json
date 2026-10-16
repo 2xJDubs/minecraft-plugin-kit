@@ -15,7 +15,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 12,
    "legacy": {
     "chainId": 2109,
@@ -40,7 +40,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 15,
    "legacy": {
     "chainId": 2109,
@@ -65,7 +65,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 16,
    "legacy": {
     "chainId": 2109,
@@ -90,7 +90,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 23,
    "legacy": {
     "chainId": 2109,
@@ -115,7 +115,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 20,
    "legacy": {
     "chainId": 2109,
@@ -140,7 +140,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 13,
    "legacy": {
     "chainId": 2109,
@@ -178,7 +178,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 11,
    "legacy": {
     "chainId": 2109,
@@ -203,7 +203,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 17,
    "legacy": {
     "chainId": 2109,
@@ -228,7 +228,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 14,
    "legacy": {
     "chainId": 2109,
@@ -253,7 +253,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 18,
    "legacy": {
     "chainId": 2109,
@@ -278,7 +278,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 21,
    "legacy": {
     "chainId": 2109,
@@ -303,7 +303,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 22,
    "legacy": {
     "chainId": 2109,
@@ -328,7 +328,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 10,
    "legacy": {
     "chainId": 2109,
@@ -353,7 +353,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 19,
    "legacy": {
     "chainId": 2109,
@@ -376,7 +376,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 24,
    "legacy": {
     "chainId": 2109,
@@ -399,7 +399,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 30,
    "legacy": {
     "chainId": 2109,
@@ -422,7 +422,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 34,
    "legacy": {
     "chainId": 2109,
@@ -445,7 +445,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 39,
    "legacy": {
     "chainId": 2109,
@@ -468,7 +468,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 44,
    "legacy": {
     "chainId": 2109,
@@ -491,7 +491,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 49,
    "legacy": {
     "chainId": 2109,
@@ -514,7 +514,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 54,
    "legacy": {
     "chainId": 2109,
@@ -537,7 +537,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 25,
    "legacy": {
     "chainId": 2109,
@@ -560,7 +560,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 31,
    "legacy": {
     "chainId": 2109,
@@ -583,7 +583,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 35,
    "legacy": {
     "chainId": 2109,
@@ -606,7 +606,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 40,
    "legacy": {
     "chainId": 2109,
@@ -629,7 +629,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 45,
    "legacy": {
     "chainId": 2109,
@@ -652,7 +652,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 50,
    "legacy": {
     "chainId": 2109,
@@ -675,7 +675,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 55,
    "legacy": {
     "chainId": 2109,
@@ -698,7 +698,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 26,
    "legacy": {
     "chainId": 2109,
@@ -721,7 +721,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 32,
    "legacy": {
     "chainId": 2109,
@@ -744,7 +744,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 36,
    "legacy": {
     "chainId": 2109,
@@ -767,7 +767,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 41,
    "legacy": {
     "chainId": 2109,
@@ -790,7 +790,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 46,
    "legacy": {
     "chainId": 2109,
@@ -813,7 +813,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 51,
    "legacy": {
     "chainId": 2109,
@@ -836,7 +836,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 56,
    "legacy": {
     "chainId": 2109,
@@ -859,7 +859,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 27,
    "legacy": {
     "chainId": 2109,
@@ -882,7 +882,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 33,
    "legacy": {
     "chainId": 2109,
@@ -905,7 +905,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 37,
    "legacy": {
     "chainId": 2109,
@@ -928,7 +928,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 42,
    "legacy": {
     "chainId": 2109,
@@ -951,7 +951,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 47,
    "legacy": {
     "chainId": 2109,
@@ -974,7 +974,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 52,
    "legacy": {
     "chainId": 2109,
@@ -997,7 +997,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 57,
    "legacy": {
     "chainId": 2109,
@@ -1020,7 +1020,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 28,
    "legacy": {
     "chainId": 2109,
@@ -1043,7 +1043,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 29,
    "legacy": {
     "chainId": 2109,
@@ -1066,7 +1066,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 38,
    "legacy": {
     "chainId": 2109,
@@ -1089,7 +1089,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 43,
    "legacy": {
     "chainId": 2109,
@@ -1112,7 +1112,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 48,
    "legacy": {
     "chainId": 2109,
@@ -1135,7 +1135,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 53,
    "legacy": {
     "chainId": 2109,
@@ -1158,7 +1158,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 58,
    "legacy": {
     "chainId": 2109,
@@ -1208,7 +1208,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 81,
    "legacy": {
     "chainId": 2109,
@@ -1233,7 +1233,7 @@
    "minecraft:netherite_axe"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 81,
    "legacy": {
     "chainId": 2109,
@@ -1258,7 +1258,7 @@
    "minecraft:netherite_hoe"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 81,
    "legacy": {
     "chainId": 2109,
@@ -1283,7 +1283,7 @@
    "minecraft:netherite_pickaxe"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 81,
    "legacy": {
     "chainId": 2109,
@@ -1308,7 +1308,7 @@
    "minecraft:netherite_shovel"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 81,
    "legacy": {
     "chainId": 2109,
@@ -1333,7 +1333,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 82,
    "legacy": {
     "chainId": 2109,
@@ -1358,7 +1358,7 @@
    "minecraft:netherite_axe"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 82,
    "legacy": {
     "chainId": 2109,
@@ -1383,7 +1383,7 @@
    "minecraft:netherite_hoe"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 82,
    "legacy": {
     "chainId": 2109,
@@ -1408,7 +1408,7 @@
    "minecraft:netherite_pickaxe"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 82,
    "legacy": {
     "chainId": 2109,
@@ -1433,7 +1433,7 @@
    "minecraft:netherite_shovel"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 82,
    "legacy": {
     "chainId": 2109,
@@ -1458,7 +1458,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 86,
    "legacy": {
     "chainId": 2109,
@@ -1483,7 +1483,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 87,
    "legacy": {
     "chainId": 2109,
@@ -1508,7 +1508,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 88,
    "legacy": {
     "chainId": 2109,
@@ -1533,7 +1533,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 89,
    "legacy": {
     "chainId": 2109,
@@ -1558,7 +1558,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 90,
    "legacy": {
     "chainId": 2109,
@@ -1583,7 +1583,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 91,
    "legacy": {
     "chainId": 2109,
@@ -1608,7 +1608,7 @@
    "minecraft:netherite_sword"
   ],
   "requirement": {
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenId": 92,
    "legacy": {
     "chainId": 2109,

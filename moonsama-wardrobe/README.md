@@ -29,8 +29,9 @@ collection + token id, so the wardrobe mirrors the rules like this:
 | Customizer rule | Wardrobe equivalent |
 | --- | --- |
 | Trait rules (`nft` / `trait`, patterns) | A part is unlocked if one of the player's NFTs in the same collection has it in its default composition. Holding Moonsama #2 (aviator) unlocks the aviator for Moonsama #1. |
-| `nft` `any` / `specific` / `range` on a legacy contract | The contract is mapped to a Portal collection through `cosmetics-data/collections.json` → `legacyContracts`, then checked against holdings. Multiverse Items on Moonriver and Exosama both map to `moonsama-x` with identical ids. |
-| Contracts Portal does not know (Multiverse Costumes, Backgrounds, Avatars) | Governed by `parts-outside-portal`: `locked` (default) keeps the 39 costume-only parts unavailable; `free` opens them to every linked player. Portal will not index those contracts, so this is a server policy, not a data gap. |
+| `nft` `any` / `specific` / `range` on a legacy contract | The contract is mapped to a Portal collection through `cosmetics-data/collections.json` → `legacyContracts`, then checked against holdings. Multiverse Items on Moonriver and Exosama both map to `multiverseitems`; MoonsamaCore also counts holdings Portal still lists under the old `moonsama-x` slug (same id = same item). |
+| `nft` on Multiverse Costumes / Backgrounds | Portal collections `multiversecostumes` and `multiversebackgrounds` (same token ids as the Exosama-network contracts, verified by name). Costume parts and the backgrounds they unlock are checked against holdings like everything else. |
+| Contracts Portal does not index (`portal: null` in `collections.json`; none in the shipped data) | Governed by `parts-outside-portal`: `locked` (default) or `free`. |
 | `AND` / `OR` / `NAND` / `NOR`, `invert` | Evaluated as written. |
 | `none` / unknown types | Never unlock. |
 
@@ -64,7 +65,7 @@ look on the next `PortalHoldingsLoadedEvent`, and losing the base NFT itself is 
 ```yaml
 collections: [moonsama, exosama]      # composable Portal collections
 hidden-slots: [background, companion] # customizable slots to leave out of the menu
-parts-outside-portal: locked          # or "free": costume-only parts for everyone
+parts-outside-portal: locked          # or "free"; only matters for contracts Portal does not index
 signing-budget:                       # per player; only NEW looks count (0 = off)
   cooldown-seconds: 20
   max-per-hour: 30

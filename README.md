@@ -6,9 +6,8 @@ and assets in Minecraft.
 The kit links Mojang-authenticated players to Portal and gives builder plugins
 a durable API for holdings, spend, rewards, refunds, and asset holds.
 
-> Paper 26.3 is currently pre-release (beta) software. The server and API are pinned to a
-> verified build so upgrades are explicit and reproducible. Run
-> `make refresh-paper` to pin the newest available 26.3 build.
+> The Paper server and API are pinned to a verified 26.3 build so upgrades are explicit and
+> reproducible. Run `make refresh-paper` to pin the newest available 26.3 build.
 
 ## Requirements
 
@@ -82,7 +81,7 @@ Changes between versions are listed in [CHANGELOG.md](CHANGELOG.md).
   into a 64×64 skin PNG from the layers in `cosmetics-data`. See
   [skin-compositor/README.md](skin-compositor/README.md).
 - `moonsama-items`: `/items` plugin for the legacy item cosmetics — weapon/tool skins
-  and off-hand items unlocked by `moonsama-x` (Multiverse Items) tokens, plus the 3D hats
+  and off-hand items unlocked by `multiverseitems` (Multiverse Items) tokens, plus the 3D hats
   that belong to a worn Moonsama/Exosama skin (with `MoonsamaSkins`). Off-hands carry
   their legacy gameplay perks (Moonbroom flight, Eggnades, Detectore ore glow, Pods jams,
   …), each of which can be switched off in the config. See

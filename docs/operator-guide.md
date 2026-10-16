@@ -12,7 +12,7 @@ server needs its own Portal app.
 
 | What | Version / note |
 | --- | --- |
-| Paper | **26.3** (`api-version: '26.3'`). Each kit release states the Paper build it was tested with (`paperBuild` in `gradle.properties`, currently 147). 26.3 is in beta; newer builds usually work, older ones may not. |
+| Paper | **26.3** (`api-version: '26.3'`). Each kit release states the Paper build it was tested with (`paperBuild` in `gradle.properties`, currently 194, the first stable 26.3 build). Newer builds usually work, older ones may not. |
 | Java | 25 (Temurin or any OpenJDK 25). |
 | Network | Players reach the server on `25565`. One extra **public HTTPS URL** for the Portal OAuth callback (see §4). |
 | Portal | A Moonsama Portal **production** API key pair and OAuth client for this server (§3). |
@@ -197,6 +197,13 @@ touch:
   `uniform-collections` (one entry regardless of count, e.g. Gromlin).
 - **`MoonsamaCore`** - `sync.holdings-ttl-seconds` (how stale holdings may be before
   a refresh, default 60), `sync.changes-interval-seconds` (Portal change feed polling, 5).
+
+- **`MoonsamaCore`** - `collection-aliases:` lists Portal collections that are the same
+  items under the same token ids because they were migrated between chains. Default:
+  `multiverseitems` (Multiverse Items, Exosama network) and `moonsama-x` (its Moonriver
+  predecessor), same token id = same item, so a VIP ticket or off-hand still sitting on the
+  old slug counts everywhere. All kit data is keyed on the new slugs; add a group here if Portal splits
+  another collection, set `[]` to disable.
 
 Permissions (`default: true` = everyone): `moonsama.use`, `moonsama.skins.use`,
 `moonsama.items.use`, `moonsama.wardrobe.use`. Operator-only: `moonsama.admin`

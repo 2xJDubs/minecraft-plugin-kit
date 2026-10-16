@@ -2,7 +2,7 @@
  "anyOf": [
   {
    "note": "VIP Tickets",
-   "collection": "moonsama-x",
+   "collection": "multiverseitems",
    "tokenIdPattern": "^1$",
    "legacy": {
     "chainId": 1285,

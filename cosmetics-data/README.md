@@ -42,10 +42,11 @@ and MineSkin's generator accounts, not players.
   `signature`, `model`). Apply with a `textures` profile property; no signing needed.
   Counts: moonsama 1,000, exosama 10,000, gromlin 3,333, moonsama-embassy 15, moonsama-multiverse-art-eth 27.
 - `item-skins.json` — tool skins (custom model data per vanilla material) and the Portal
-  token that unlocks each one (68 entries). Unlock tokens live in
-  the `moonsama-x` collection; token ids are identical on the Moonriver contract
-  (1285 `0x1974eeaf317ecf792ff307f25a3521c35eecde86`) and its Exosama-network migration
-  target (2109 `0x9984440fb82f1af013865141909276d26b86e303`).
+  token that unlocks each one (68 entries). Unlock tokens are keyed
+  on the `multiverseitems` collection (Multiverse Items, Exosama network, ids 1-95). Ids
+  1-70 also exist on the Moonriver predecessor Portal lists as `moonsama-x`;
+  MoonsamaCore's `collection-aliases` makes holdings under either slug count (same id =
+  same item; verified id by id against Portal metadata and the Customizer unlock rules).
 - `offhands.json`, `hats.json` — cosmetic off-hand items and 3D hats of the legacy server
   (material, custom model data, unlocking Portal token). Curated by hand from the retired
   plugin sources rather than extracted, so they survive re-runs of the extractor.

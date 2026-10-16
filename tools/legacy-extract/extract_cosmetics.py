@@ -48,15 +48,20 @@ PORTAL_COLLECTIONS = {
     "multiverse-avatars": "moonsama-multiverse-art-eth",
 }
 
-# Legacy on-chain contracts -> Portal collection. The Moonriver Moonsama X contract and the
-# Exosama-network Multiverse Items contract hold the same items under the same token ids
-# (the migration preserved id parity; verified against Portal token metadata), so both map
-# to the single Portal collection `moonsama-x`.
+# Legacy on-chain contracts -> Portal collection. The Moonriver Moonsama X contract (ids 1-70)
+# migrated to the Exosama-network Multiverse Items contract (ids 1-95) with identical token
+# ids. Portal exposes them as two collections, `moonsama-x` (old; today holds only a few VIP
+# tickets, id 1) and `multiverseitems` (new; everything else). Data is keyed on the new slug;
+# MoonsamaCore's `collection-aliases` makes `moonsama-x` holdings count (same id = same item).
 LEGACY_CONTRACTS = {
-    (1285, "0x1974eeaf317ecf792ff307f25a3521c35eecde86"): {"portal": "moonsama-x", "note": "Moonsama X (Moonriver)"},
+    (1285, "0x1974eeaf317ecf792ff307f25a3521c35eecde86"): {
+        "portal": "multiverseitems",
+        "note": "Moonsama X (Moonriver); migrated to Multiverse Items with the same ids 1-70; "
+                "Portal still lists it as `moonsama-x`",
+    },
     (2109, "0x9984440fb82f1af013865141909276d26b86e303"): {
-        "portal": "moonsama-x",
-        "note": "Multiverse Items (Exosama network); token ids mirror the Moonriver twin",
+        "portal": "multiverseitems",
+        "note": "Multiverse Items (Exosama network); ids 1-70 mirror Moonsama X, 71-95 are new",
     },
     (1285, "0xb654611f84a8dc429ba3cb4fda9fad236c505a1a"): {"portal": "moonsama", "note": "Moonsama (Moonriver)"},
     (2109, "0xf5211d1e02939856da995965ef7b24dc60cc472e"): {"portal": "moonsama", "note": "Moonsama (Exosama network)"},
@@ -64,8 +69,14 @@ LEGACY_CONTRACTS = {
     (1284, "0xf27a6c72398eb7e25543d19fda370b7083474735"): {"portal": "gromlin", "note": "Gromlins (Moonbeam)"},
     (1285, "0x0a54845ac3743c96e582e03f26c3636ea9c00c8a"): {"portal": "moonsama-embassy", "note": "Moonsama Embassy (Moonriver)"},
     (2109, "0xaa821f830beff26626379d840621b92911ea53b7"): {"portal": "pods", "note": "Pods (Exosama network)"},
-    (2109, "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71"): {"portal": None, "note": "Multiverse Costumes; not in Portal"},
-    (2109, "0x5cb76be66792a48bdc96676224cda8bf1df611d4"): {"portal": None, "note": "Multiverse Backgrounds; not in Portal"},
+    (2109, "0xc630f52a35cfde19122ccd822f1ba00be6fd2e71"): {
+        "portal": "multiversecostumes",
+        "note": "Multiverse Costumes (Exosama network); Portal token ids = contract ids (verified by name, 1-47)",
+    },
+    (2109, "0x5cb76be66792a48bdc96676224cda8bf1df611d4"): {
+        "portal": "multiversebackgrounds",
+        "note": "Multiverse Backgrounds (Exosama network); Portal token ids = contract ids (1-5)",
+    },
     (1, "0xd1321561c00b6cbb316b157f8e38b9341b3f2979"): {
         "portal": "moonsama-multiverse-art-eth",
         "note": "Multiverse Avatars / Multiverse Art (Ethereum); final migration target",
@@ -585,10 +596,11 @@ and MineSkin's generator accounts, not players.
   `signature`, `model`). Apply with a `textures` profile property; no signing needed.
   Counts: {skins}.
 - `item-skins.json` — tool skins (custom model data per vanilla material) and the Portal
-  token that unlocks each one ({summary.get('itemSkins')} entries). Unlock tokens live in
-  the `moonsama-x` collection; token ids are identical on the Moonriver contract
-  (1285 `0x1974eeaf317ecf792ff307f25a3521c35eecde86`) and its Exosama-network migration
-  target (2109 `0x9984440fb82f1af013865141909276d26b86e303`).
+  token that unlocks each one ({summary.get('itemSkins')} entries). Unlock tokens are keyed
+  on the `multiverseitems` collection (Multiverse Items, Exosama network, ids 1-95). Ids
+  1-70 also exist on the Moonriver predecessor Portal lists as `moonsama-x`;
+  MoonsamaCore's `collection-aliases` makes holdings under either slug count (same id =
+  same item; verified id by id against Portal metadata and the Customizer unlock rules).
 - `offhands.json`, `hats.json` — cosmetic off-hand items and 3D hats of the legacy server
   (material, custom model data, unlocking Portal token). Curated by hand from the retired
   plugin sources rather than extracted, so they survive re-runs of the extractor.
