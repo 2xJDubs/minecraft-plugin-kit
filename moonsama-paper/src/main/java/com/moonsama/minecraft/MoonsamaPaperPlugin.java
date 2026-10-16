@@ -63,6 +63,7 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
     private EconomyCoordinator economy;
     private HoldCoordinator holds;
     private PortalSyncService sync;
+    private CollectionAliases aliases = CollectionAliases.NONE;
     private OAuthCallbackServer callbackServer;
     private ResourcePackManager resourcePack;
 
@@ -109,7 +110,7 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
                 this::onHoldChanged,
                 this::onWorkerError
         );
-        CollectionAliases aliases = CollectionAliases.load(getConfig(), "collection-aliases");
+        aliases = CollectionAliases.load(getConfig(), "collection-aliases");
         if (!aliases.isEmpty()) {
             getLogger().info("Migrated collections treated as one: " + aliases);
         }
@@ -243,6 +244,10 @@ public final class MoonsamaPaperPlugin extends JavaPlugin implements MoonsamaSer
                         oauth.state(),
                         oauth.challenge()
                 ));
+    }
+
+    CollectionAliases collectionAliases() {
+        return aliases;
     }
 
     CompletableFuture<List<String>> operatorStatus() {

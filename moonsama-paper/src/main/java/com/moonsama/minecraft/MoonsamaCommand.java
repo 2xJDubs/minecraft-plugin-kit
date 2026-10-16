@@ -127,8 +127,8 @@ final class MoonsamaCommand implements CommandExecutor, TabCompleter {
                         return;
                     }
                     player.sendRichMessage("<green>Portal holdings:</green>");
-                    holdings.forEach(holding -> player.sendRichMessage(
-                            "<gray>• <white>" + safe(holding.collection())
+                    plugin.collectionAliases().fold(holdings).forEach(holding -> player.sendRichMessage(
+                            "<gray>• <white>" + safe(String.join(" / ", holding.collections()))
                                     + "</white> #" + safe(holding.tokenId())
                                     + ": <aqua>" + safe(holding.balance()) + "</aqua></gray>"
                     ));

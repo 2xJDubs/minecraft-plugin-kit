@@ -71,6 +71,36 @@ class CollectionAliasesTest {
     }
 
     @Test
+    void foldShowsEachRealHoldingOnceWithTheSlugPortalReportedFirst() {
+        CollectionAliases aliases = CollectionAliases.DEFAULTS;
+        List<AssetHolding> expanded = aliases.expand(List.of(MOONSAMA_X_VIP, MULTIVERSE_DETECTORE, PFP));
+
+        assertThat(aliases.fold(expanded)).containsExactly(
+                new CollectionAliases.Folded(List.of("moonsama-x", "multiverseitems"), "1", "1"),
+                new CollectionAliases.Folded(List.of("multiverseitems", "moonsama-x"), "64", "2"),
+                new CollectionAliases.Folded(List.of("moonsama"), "12", "1")
+        );
+
+        AssetHolding onOld = new AssetHolding("moonsama-x", "5", "1");
+        AssetHolding onNew = new AssetHolding("multiverseitems", "5", "3");
+        assertThat(aliases.fold(aliases.expand(List.of(onOld, onNew)))).containsExactly(
+                new CollectionAliases.Folded(List.of("moonsama-x"), "5", "1"),
+                new CollectionAliases.Folded(List.of("multiverseitems"), "5", "3")
+        );
+    }
+
+    @Test
+    void keepsTheCollectionOrderAsWritten() {
+        assertThat(CollectionAliases.DEFAULTS.toString()).isEqualTo("multiverseitems = moonsama-x");
+
+        YamlConfiguration custom = new YamlConfiguration();
+        custom.set("collection-aliases", List.of(
+                java.util.Map.of("collections", List.of("pondsama-movr", "Pondsama"), "token-ids", List.of("1-10"))));
+        assertThat(CollectionAliases.load(custom, "collection-aliases").toString())
+                .isEqualTo("pondsama-movr = pondsama (ids 1-10)");
+    }
+
+    @Test
     void rejectsSingleCollectionGroupsAndBadRanges() {
         assertThatThrownBy(() -> new CollectionAliases.Group(Set.of("only"), List.of()))
                 .isInstanceOf(IllegalArgumentException.class);
