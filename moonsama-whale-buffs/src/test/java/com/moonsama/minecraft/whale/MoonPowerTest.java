@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
@@ -29,6 +30,9 @@ class MoonPowerTest {
         assertThat(config.enabled()).isTrue();
         assertThat(config.requireEntitledSkin()).isTrue();
         assertThat(config.entitledCollections())
+                .containsExactlyInAnyOrder("moonsama", "exosama", "moonsama-multiverse-art-eth");
+        assertThat(config.fireEnabled()).isTrue();
+        assertThat(config.fireCollections())
                 .containsExactlyInAnyOrder("moonsama", "exosama", "moonsama-multiverse-art-eth");
         assertThat(config.powerPerToken()).containsEntry("moonsama", 10.0).containsEntry("exosama", 1.0)
                 .containsEntry("moonsama-multiverse-art-eth", 10.0);
@@ -97,6 +101,39 @@ class MoonPowerTest {
         assertThat(java.nio.file.Files.readString(definition))
                 .contains("\"threshold\": " + config.whaleMode().scepterModel() + ".0")
                 .contains("whale_scepter");
+    }
+
+    @Test
+    void fireResistanceRejectsEmptyCollectionsWhenEnabled() {
+        YamlConfiguration yaml = YamlConfiguration.loadConfiguration(new StringReader("""
+                fire-resistance:
+                  enabled: true
+                  collections: []
+                """));
+
+        assertThatThrownBy(() -> WhaleConfig.from(yaml))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("fire-resistance.collections must not be empty when fire-resistance.enabled is true");
+    }
+
+    @Test
+    void whaleBuffsClassLoadsWithoutBukkitServer() throws NoSuchMethodException {
+        java.lang.reflect.Method m = WhaleBuffs.class.getDeclaredMethod(
+                "onFireDamage", org.bukkit.event.entity.EntityDamageEvent.class);
+        org.bukkit.event.EventHandler handler = m.getAnnotation(org.bukkit.event.EventHandler.class);
+        assertThat(handler).isNotNull();
+        assertThat(handler.priority()).isEqualTo(org.bukkit.event.EventPriority.HIGHEST);
+        assertThat(handler.ignoreCancelled()).isFalse();
+    }
+
+    @Test
+    void combustHandlerKeepsPriorityAndCancellationPolicy() throws NoSuchMethodException {
+        java.lang.reflect.Method m = WhaleBuffs.class.getDeclaredMethod(
+                "onCombust", org.bukkit.event.entity.EntityCombustEvent.class);
+        org.bukkit.event.EventHandler handler = m.getAnnotation(org.bukkit.event.EventHandler.class);
+        assertThat(handler).isNotNull();
+        assertThat(handler.priority()).isEqualTo(org.bukkit.event.EventPriority.HIGHEST);
+        assertThat(handler.ignoreCancelled()).isFalse();
     }
 
     @Test

@@ -10,11 +10,14 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.damage.DamageType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityCombustEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -33,6 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
 
@@ -42,6 +46,19 @@ import java.util.logging.Level;
  */
 public final class WhaleBuffs implements Listener {
     static final int PERIOD_TICKS = 5;
+    /** Holder: the registry-backed DamageType constants must not initialize before the server is up. */
+    private static final class FireTypes {
+        static final Set<DamageType> ALL = Set.of(DamageType.IN_FIRE, DamageType.ON_FIRE, DamageType.LAVA,
+                DamageType.HOT_FLOOR, DamageType.CAMPFIRE, DamageType.FIREBALL,
+                DamageType.UNATTRIBUTED_FIREBALL, DamageType.DRAGON_BREATH, DamageType.SULFUR_CUBE_HOT);
+
+        private FireTypes() {}
+    }
+
+    /** Returns whether the damage type is one protected by skin-gated fire resistance. */
+    static boolean isFireType(DamageType type) {
+        return type != null && FireTypes.ALL.contains(type);
+    }
 
     /** Per-player state; power is what the holdings are worth, entitled whether it applies. */
     public static final class Tracker {
@@ -170,6 +187,12 @@ public final class WhaleBuffs implements Listener {
             return true;
         }
         return skins != null && skins.wearsEntitledSkin(player.getUniqueId(), config.entitledCollections());
+    }
+
+    /** Returns whether the player currently wears a configured fire-resistant skin. */
+    private boolean wearsFireSkin(Player player) {
+        return config.fireEnabled() && skins != null
+                && skins.wearsEntitledSkin(player.getUniqueId(), config.fireCollections());
     }
 
     private void apply(Player player, Tracker tracker) {
@@ -351,6 +374,28 @@ public final class WhaleBuffs implements Listener {
             return;
         }
         event.setDamage(Math.max(1, event.getDamage()) * MoonPower.damageFactor(config, power));
+    }
+
+    /** Cancels fire, lava, fire projectile and area cloud damage for players wearing an entitled fire skin. */
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = false)
+    public void onFireDamage(EntityDamageEvent event) {
+        if (!config.enabled() || !config.fireEnabled()) {
+            return;
+        }
+        if (event.getEntity() instanceof Player player && isFireType(event.getDamageSource().getDamageType()) && wearsFireSkin(player)) {
+            event.setCancelled(true);
+        }
+    }
+
+    /** Prevents players wearing an entitled fire skin from igniting. */
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = false)
+    public void onCombust(EntityCombustEvent event) {
+        if (!config.enabled() || !config.fireEnabled()) {
+            return;
+        }
+        if (event.getEntity() instanceof Player player && wearsFireSkin(player)) {
+            event.setCancelled(true);
+        }
     }
 
     @EventHandler(ignoreCancelled = true)

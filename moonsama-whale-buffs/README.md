@@ -24,6 +24,15 @@ check re-runs whenever the worn skin changes, so selling the NFT or taking off t
 removes the buffs immediately. Nothing is persisted: the health modifier is removed on quit,
 so player files never carry buffs.
 
+## Skin-gated fire resistance
+
+Protections follow Paper's data-driven damage types for fire, lava, magma, campfires, fireballs
+(including unattributed fireballs), dragon breath clouds and sulfur cubes; protected players also
+cannot be ignited, including by Fire Aspect. Set `fire-resistance.enabled: false` to disable it.
+This protection uses `MoonsamaSkins` directly and works independently of Moon Power, Whale Mode,
+`skins.require-entitled-skin`, and potion effects; it never adds or removes a `FIRE_RESISTANCE`
+effect.
+
 Deliberate differences from the legacy plugin:
 
 - Players with 0 power keep their plain name (the old code coloured everyone gold).
